@@ -20,3 +20,10 @@ Transformers:
 
 
 ---
+## Core Components
+
+### 1. Self-Attention
+Each token attends to every other token.
+It answers: *“Which parts of the sequence matter rn?”*
+
+Formula (scaled dot-product attention):
