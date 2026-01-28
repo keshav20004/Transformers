@@ -27,3 +27,39 @@ Each token attends to every other token.
 It answers: *“Which parts of the sequence matter rn?”*
 
 Formula (scaled dot-product attention):
+
+Beginner miss:
+- Attention ≠ understanding
+- It’s weighted averaging, not magic
+
+---
+
+### 2. Multi-Head Attention
+Multiple attention mechanisms run in parallel.
+
+Why?
+- Each head learns different relations (syntax, semantics, position, vibes)
+
+Pitfall:
+- More heads ≠ better model
+- You’re trading compute for marginal gains
+
+---
+
+### 3. Positional Encoding
+Transformers are permutation-invariant.  
+So we inject position info manually.
+
+Types:
+- Sinusoidal (original paper)
+- Learned embeddings (most modern models)
+
+Common L:
+- Forgetting positional encodings → model becomes word soup
+
+---
+
+### 4. Feed Forward Network (FFN)
+Applied **independently** to each token.
+
+
