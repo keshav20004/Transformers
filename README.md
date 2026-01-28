@@ -78,3 +78,82 @@ Without this:
 ---
 
 ## Architecture Overview
+
+Encoder-only → BERT-style  
+Decoder-only → GPT-style  
+Encoder–Decoder → Translation models
+
+---
+
+## Training Objective
+
+Depends on task:
+
+- Language Modeling → Next-token prediction
+- Translation → Cross-entropy over target sequence
+- Classification → Pooled output + softmax
+
+Beginner trap:
+- Confusing **pretraining** with **fine-tuning**
+- They are not the same game
+
+---
+
+## Practical Stack
+
+Typical modern setup:
+- PyTorch
+- Hugging Face Transformers
+- AdamW optimizer
+- Learning rate warmup (don’t skip this)
+
+Silent killer:
+- Wrong attention mask → model cheats or breaks
+
+---
+
+## Advantages
+
+- Parallel computation
+- Handles long dependencies
+- Scales with data + compute
+
+## Limitations
+
+- Quadratic attention cost (O(n²))
+- Memory hog
+- Overkill for tiny datasets
+
+Yes, your 5k-row CSV does NOT need a transformer.
+
+---
+
+## When to Use Transformers
+
+Use if:
+- Sequence length matters
+- Context matters
+- You have data + compute
+
+Don’t use if:
+- Dataset is tiny
+- Task is tabular regression
+- You just want to sound cool
+
+---
+
+## Further Reading
+
+- *Attention Is All You Need*
+- Transformer variants: Longformer, Performer, Linformer
+- Flash Attention (actual speedup, not vibes)
+
+---
+
+## TL;DR
+
+Transformers = attention + scale + engineering discipline.  
+Powerful, expensive, unforgiving.
+
+Learn PyTorch first. Then transformers.  
+Otherwise you’re just cargo-culting APIs.
