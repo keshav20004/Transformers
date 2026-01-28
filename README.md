@@ -54,7 +54,7 @@ Types:
 - Sinusoidal (original paper)
 - Learned embeddings (most modern models)
 
-Common L:
+Common Mistake:
 - Forgetting positional encodings → model becomes word soup
 
 ---
@@ -62,4 +62,19 @@ Common L:
 ### 4. Feed Forward Network (FFN)
 Applied **independently** to each token.
 
+Looks boring.  
+Carries most of the parameters. Quietly important.
 
+---
+
+### 5. Residual Connections + LayerNorm
+Keeps gradients sane.
+
+Without this:
+- Training collapses
+- Loss goes NaN
+
+
+---
+
+## Architecture Overview
